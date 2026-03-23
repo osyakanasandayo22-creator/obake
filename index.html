@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obake</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;700;900&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img src="images/obake-logo.png" alt="" class="logo-img">
+        Obake
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg-orb"></div>
+    <div class="container">
+      <span class="hero-label" data-reveal>Independent Developer</span>
+      <h1 data-reveal data-reveal-delay="1">日常に、<br>もう一つの<span class="accent">体験</span>を。</h1>
+      <p class="hero-desc" data-reveal data-reveal-delay="2">
+        Obake は、一人の開発者がつくるアプリブランドです。
+        SNS・学習・自己成長・創造・エンタメ——
+        「こんなアプリがあったら」を、自分の手で形にしています。
+      </p>
+    </div>
+    <div class="scroll-indicator" data-reveal data-reveal-delay="3">
+      <span></span>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-text" data-reveal>
+        <h2>つくる理由</h2>
+        <p>
+          「自分が使いたいものを、自分でつくる。」——それが開発の原点です。
+          SNS で発信したい、もっと賢くなりたい、何かを創りたい。
+          そういう気持ちに正直に、プロダクトを生み出し続けています。
+        </p>
+        <p>
+          一人だからこそ、デザインも体験も妥協しない。
+          遊び心と実用性を両立させることが、Obake のつくり方です。
+        </p>
+      </div>
+      <div class="about-photo" data-reveal data-reveal-delay="1">
+        <img src="images/obake.png" alt="Obake" class="about-img">
+      </div>
+    </div>
+  </section>
+
+  <section class="works" id="works">
+    <div class="container">
+      <h2 class="works-heading" data-reveal>Works</h2>
+
+      <!-- ── 01 SNS ── -->
+      <div class="category">
+        <aside class="cat-sidebar" data-reveal>
+          <span class="cat-num">01</span>
+          <span class="cat-tag">SNS</span>
+          <h3 class="cat-title">SNS で表現する</h3>
+          <p class="cat-desc">ストレス社会に安らぎと発信の場を提供する。</p>
+        </aside>
+        <div class="cat-content">
+          <article class="hero-app app-link" data-reveal data-url="https://norit.vercel.app">
+            <div class="hero-app-gallery">
+              <img src="images/norito (2).png" class="active" alt="norito">
+              <img src="images/norito (3).png" alt="norito">
+              <img src="images/norito (4).png" alt="norito">
+              <img src="images/norito (1).png" alt="norito">
+            </div>
+            <h4 class="hero-app-name">Norito</h4>
+            <p class="hero-app-catch">全員を祝い、歓迎するSNS。</p>
+            <p class="hero-app-desc">ここでは誰かを非難することは断じて許されません。純粋なNoritoを贈るだけです。</p>
+          </article>
+          <div class="shelf">
+            <article class="shelf-item app-link" data-reveal data-url="https://noodus.vercel.app">
+              <div class="shelf-gallery landscape">
+                <img src="images/Nodus (1).png" class="active" alt="Nodus">
+                <img src="images/Nodus (2).png" alt="Nodus">
+              </div>
+              <h5 class="shelf-name">Nodus</h5>
+              <p class="shelf-desc">己の哲学を共有するSNS。</p>
+            </article>
+            <article class="shelf-item app-link" data-reveal data-reveal-delay="1" data-url="https://shortcutown.vercel.app">
+              <div class="shelf-gallery portrait">
+                <img src="images/shortcut.png" class="active" alt="shortcut">
+              </div>
+              <h5 class="shelf-name">Shortcut</h5>
+              <p class="shelf-desc">無駄な怠惰を断ち切るツール。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 02 Study ── -->
+      <div class="category">
+        <aside class="cat-sidebar" data-reveal>
+          <span class="cat-num">02</span>
+          <span class="cat-tag">Study</span>
+          <h3 class="cat-title">学習を趣味に</h3>
+          <p class="cat-desc">「面倒」を「面白い」に変えるツール。</p>
+        </aside>
+        <div class="cat-content">
+          <article class="hero-app app-link" data-reveal data-url="https://goi-delta.vercel.app">
+            <div class="hero-app-gallery">
+              <img src="images/語彙力向上AI (1).png" class="active" alt="語彙力向上AI">
+              <img src="images/語彙力向上AI (2).png" alt="語彙力向上AI">
+            </div>
+            <h4 class="hero-app-name">語彙力向上AI</h4>
+            <p class="hero-app-catch">AIで国語の問題を出題・採点する。</p>
+            <p class="hero-app-desc">日本語が苦手ない人でも簡単に語彙力を向上させることができます。</p>
+          </article>
+          <div class="shelf">
+            <article class="shelf-item app-link" data-reveal data-url="https://kotenbunpouanki.vercel.app">
+              <div class="shelf-gallery portrait">
+                <img src="images/古典文法暗記 (1).png" class="active" alt="古典文法暗記">
+                <img src="images/古典文法暗記 (2).png" alt="古典文法暗記">
+              </div>
+              <h5 class="shelf-name">古典文法暗記</h5>
+              <p class="shelf-desc">抜けやすい文法を叩き込む。</p>
+            </article>
+            <article class="shelf-item app-link" data-reveal data-reveal-delay="1" data-url="https://english-word-bro.vercel.app">
+              <div class="shelf-gallery portrait">
+                <img src="images/LEAPer (1).png" class="active" alt="LEAPer">
+                <img src="images/LEAPer (2).png" alt="LEAPer">
+                <img src="images/LEAPer (3).png" alt="LEAPer">
+              </div>
+              <h5 class="shelf-name">LEAPer</h5>
+              <p class="shelf-desc">覚えやすい体験を追究。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 03 Self-Growth ── -->
+      <div class="category">
+        <aside class="cat-sidebar" data-reveal>
+          <span class="cat-num">03</span>
+          <span class="cat-tag">Self-Growth</span>
+          <h3 class="cat-title">自分のセンスを磨く</h3>
+          <p class="cat-desc">知識を蓄え、時間を管理し、昨日の自分を超えていく。</p>
+        </aside>
+        <div class="cat-content">
+          <article class="hero-app app-link" data-reveal data-url="https://tentouwiki.vercel.app">
+            <div class="hero-app-gallery">
+              <img src="images/点灯Wiki (1).png" class="active" alt="点灯Wiki">
+              <img src="images/点灯Wiki (2).png" alt="点灯Wiki">
+              <img src="images/点灯Wiki (3).png" alt="点灯Wiki">
+              <img src="images/点灯Wiki (4).png" alt="点灯Wiki">
+            </div>
+            <h4 class="hero-app-name">点灯Wiki</h4>
+            <p class="hero-app-catch">万物の本質を見抜く目を。</p>
+            <p class="hero-app-desc">Wikipediaの全単語を取得し、音声やカードで出題。短期記憶、意味記憶を効果的に鍛えることができます。</p>
+          </article>
+          <div class="shelf">
+            <article class="shelf-item app-link" data-reveal data-url="https://far-theta.vercel.app">
+              <div class="shelf-gallery portrait">
+                <img src="images/CalenderTEMP.png" class="active" alt="CalenderTEMP">
+              </div>
+              <h5 class="shelf-name">CalenderTEMP</h5>
+              <p class="shelf-desc">時間の管理は心の管理。</p>
+            </article>
+            <article class="shelf-item app-link" data-reveal data-reveal-delay="1" data-url="https://yesterday-iota.vercel.app">
+              <div class="shelf-gallery portrait">
+                <img src="images/yesterday.png" class="active" alt="yesterday">
+              </div>
+              <h5 class="shelf-name">Yesterday</h5>
+              <p class="shelf-desc">忘れがちな過去の自分との対話ツール。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 04 Creativity ── -->
+      <div class="category">
+        <aside class="cat-sidebar" data-reveal>
+          <span class="cat-num">04</span>
+          <span class="cat-tag">Creativity</span>
+          <h3 class="cat-title">クリエイティビティを育む</h3>
+          <p class="cat-desc">アイデアを広げ、音楽を楽しみ、創造性を解き放つ。</p>
+        </aside>
+        <div class="cat-content">
+          <article class="hero-app app-link" data-reveal data-url="https://simple-mindmaps.vercel.app">
+            <div class="hero-app-gallery">
+              <img src="images/シンプルマインドマップ (2).png" class="active" alt="シンプルマインドマップ">
+              <img src="images/シンプルマインドマップ (1).png" alt="シンプルマインドマップ">
+            </div>
+            <h4 class="hero-app-name">シンプルマインドマップ</h4>
+            <p class="hero-app-catch">最低限で最適なデザインで思考を整理。</p>
+            <p class="hero-app-desc">軽いサイトを目指しました。まっさらなノートにどんどんアイデアを描きこんでいこう。</p>
+          </article>
+          <div class="shelf">
+            <article class="shelf-item shelf-item-solo app-link" data-reveal data-url="https://falsetto-memo.vercel.app">
+              <div class="shelf-gallery landscape">
+                <img src="images/Falsetto.png" class="active" alt="Falsetto">
+              </div>
+              <h5 class="shelf-name">Falsetto</h5>
+              <p class="shelf-desc">歌唱力を突き詰めるメモアプリ。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 05 Game & Entertainment ── -->
+      <div class="category">
+        <aside class="cat-sidebar" data-reveal>
+          <span class="cat-num">05</span>
+          <span class="cat-tag">Game &amp; Entertainment</span>
+          <h3 class="cat-title">ゲーム・エンタメへの挑戦</h3>
+          <p class="cat-desc">遊び心を求めた多様な新体験。</p>
+        </aside>
+        <div class="cat-content">
+          <article class="hero-app app-link" data-reveal data-url="https://tenguonline.vercel.app">
+            <div class="hero-app-gallery">
+              <img src="images/Tengu (1).png" class="active" alt="Tengu">
+              <img src="images/Tengu (2).png" alt="Tengu">
+            </div>
+            <h4 class="hero-app-name">Tengu</h4>
+            <p class="hero-app-catch">爽快な滑空と最高級なアクションを体験。</p>
+            <p class="hero-app-desc">槍を持ったキャラクターを操作しオンラインで空中対戦を楽しめます。</p>
+          </article>
+          <div class="shelf">
+            <article class="shelf-item shelf-item-solo app-link" data-reveal data-url="https://zekku.vercel.app">
+              <div class="shelf-gallery landscape">
+                <img src="images/絶句-zekku (1).png" class="active" alt="絶句-zekku">
+                <img src="images/絶句-zekku (2).png" alt="絶句-zekku">
+                <img src="images/絶句-zekku (3).png" alt="絶句-zekku">
+              </div>
+              <h5 class="shelf-name">絶句-zekku</h5>
+              <p class="shelf-desc">新時代の投資＆対戦アプリ。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 data-reveal>Contact</h2>
+      <p class="contact-sub" data-reveal data-reveal-delay="1">お問い合わせやフィードバックはこちらから。</p>
+      <div class="contact-links" data-reveal data-reveal-delay="2">
+        <a href="#" class="contact-btn">X (Twitter)</a>
+        <a href="#" class="contact-btn">GitHub</a>
+        <a href="mailto:example@example.com" class="contact-btn">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="section-nav" aria-label="Section navigation">
+    <a href="#about" class="section-nav-item" data-target="about">
+      <span class="section-nav-label">About</span>
+      <span class="section-nav-line"></span>
+    </a>
+    <a href="#works" class="section-nav-item" data-target="works">
+      <span class="section-nav-label">Works</span>
+      <span class="section-nav-line"></span>
+    </a>
+    <a href="#contact" class="section-nav-item" data-target="contact">
+      <span class="section-nav-label">Contact</span>
+      <span class="section-nav-line"></span>
+    </a>
+  </nav>
+
+  <footer>
+    <p>&copy; 2026 Obake. All rights reserved.</p>
+  </footer>
+
+  <div class="cursor-tooltip">このサイトを開く</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
