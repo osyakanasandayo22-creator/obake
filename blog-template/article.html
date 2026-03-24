@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記事タイトル — Obake Blog</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;700;900&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/obake-logo.png" alt="" class="logo-img">
+        Obake Blog
+      </a>
+      <nav>
+        <a href="#">All</a>
+        <a href="#">Dev</a>
+        <a href="#">Design</a>
+        <a href="#">Life</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article-page">
+    <div class="container">
+
+      <header class="article-header" data-reveal>
+        <a href="index.html" class="article-back">← 一覧に戻る</a>
+        <span class="post-tag">Dev</span>
+        <h1 class="article-title">記事タイトルがここに入ります。長めのタイトルでも対応できるようにしています。</h1>
+        <div class="article-meta">
+          <time datetime="2026-03-24">2026.03.24</time>
+          <span class="post-read-time">5 min read</span>
+        </div>
+      </header>
+
+      <div class="article-hero-img" data-reveal data-reveal-delay="1">
+        <img src="images/placeholder.png" alt="記事サムネイル">
+      </div>
+
+      <div class="article-body" data-reveal data-reveal-delay="2">
+
+        <p>
+          ここに記事の本文が入ります。段落ごとに <code>&lt;p&gt;</code> タグで区切ってください。
+          読みやすい行間・フォントサイズに調整しています。
+        </p>
+
+        <h2>見出し（h2）</h2>
+
+        <p>
+          本文テキストが続きます。本文テキストが続きます。本文テキストが続きます。
+          本文テキストが続きます。本文テキストが続きます。本文テキストが続きます。
+        </p>
+
+        <h3>小見出し（h3）</h3>
+
+        <p>
+          本文テキストが続きます。本文テキストが続きます。本文テキストが続きます。
+        </p>
+
+        <ul>
+          <li>リストアイテム 1</li>
+          <li>リストアイテム 2</li>
+          <li>リストアイテム 3</li>
+        </ul>
+
+        <blockquote>
+          引用テキストがここに入ります。印象的なフレーズや参考文献の引用に使えます。
+        </blockquote>
+
+        <pre><code>// コードブロック
+const hello = "world";
+console.log(hello);</code></pre>
+
+        <p>
+          記事の締めくくりのテキストがここに入ります。
+        </p>
+
+      </div>
+
+    </div>
+  </article>
+
+  <section class="article-related">
+    <div class="container">
+      <h2 class="related-heading" data-reveal>関連記事</h2>
+      <div class="post-grid post-grid-small">
+
+        <article class="post-card" data-reveal>
+          <a href="article.html">
+            <div class="post-card-img">
+              <img src="images/placeholder.png" alt="">
+            </div>
+            <div class="post-card-body">
+              <span class="post-tag">Dev</span>
+              <h3 class="post-card-title">関連記事タイトルがここに入ります</h3>
+              <div class="post-meta">
+                <time datetime="2026-03-20">2026.03.20</time>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="post-card" data-reveal data-reveal-delay="1">
+          <a href="article.html">
+            <div class="post-card-img">
+              <img src="images/placeholder.png" alt="">
+            </div>
+            <div class="post-card-body">
+              <span class="post-tag">Design</span>
+              <h3 class="post-card-title">関連記事タイトルがここに入ります</h3>
+              <div class="post-meta">
+                <time datetime="2026-03-15">2026.03.15</time>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="post-card" data-reveal data-reveal-delay="2">
+          <a href="article.html">
+            <div class="post-card-img">
+              <img src="images/placeholder.png" alt="">
+            </div>
+            <div class="post-card-body">
+              <span class="post-tag">Life</span>
+              <h3 class="post-card-title">関連記事タイトルがここに入ります</h3>
+              <div class="post-meta">
+                <time datetime="2026-03-10">2026.03.10</time>
+              </div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="index.html" class="footer-logo">Obake Blog</a>
+      <p>&copy; 2026 Obake. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

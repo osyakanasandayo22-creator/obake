@@ -75,6 +75,13 @@ body::before {
 [data-reveal-delay="3"] { transition-delay: 0.36s; }
 [data-reveal-delay="4"] { transition-delay: 0.48s; }
 
+@media (max-width: 960px) {
+  [data-reveal-delay="1"] { transition-delay: 0.06s; }
+  [data-reveal-delay="2"] { transition-delay: 0.12s; }
+  [data-reveal-delay="3"] { transition-delay: 0.18s; }
+  [data-reveal-delay="4"] { transition-delay: 0.24s; }
+}
+
 /* ========================================
    Cursor Tooltip
    ======================================== */
@@ -612,6 +619,123 @@ body::before {
 }
 
 /* ========================================
+   Blog Promo
+   ======================================== */
+
+.blog-promo {
+  padding: 120px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.blog-promo-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.blog-promo-text h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.blog-promo-text p {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 2;
+  margin-bottom: 36px;
+  max-width: 400px;
+}
+
+.blog-promo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.35s, border-color 0.35s, gap 0.35s, box-shadow 0.35s;
+}
+
+.blog-promo-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.28);
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+}
+
+.blog-promo-arrow {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-promo-btn:hover .blog-promo-arrow {
+  transform: translateX(4px);
+}
+
+.blog-promo-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.blog-promo-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.35s, border-color 0.35s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.blog-promo-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.09);
+  transform: translateX(6px);
+}
+
+.blog-promo-tag {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.blog-promo-card-title {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.blog-promo-date {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: #444;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.blog-promo-card--empty {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ========================================
    Contact
    ======================================== */
 
@@ -740,6 +864,11 @@ footer p {
 @media (max-width: 960px) {
   .container {
     padding: 0 28px;
+  }
+
+  .blog-promo-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
   .category {

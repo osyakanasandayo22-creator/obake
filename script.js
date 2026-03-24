@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll("[data-reveal]");
 
   if (revealElements.length > 0) {
+    const isMobile = window.matchMedia("(max-width: 960px)").matches;
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      {
+        threshold: 0,
+        rootMargin: isMobile ? "0px 0px 0px 0px" : "0px 0px -40px 0px",
+      }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
