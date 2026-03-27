@@ -197,4 +197,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ========================================
+     Blog Promo Date Sync
+     ======================================== */
+
+  function formatRelativeDate(dateStr) {
+    const d = new Date(dateStr);
+    if (Number.isNaN(d.getTime())) return dateStr;
+    const now = new Date();
+    const diffMs = now.getTime() - d.getTime();
+    const diffMin = Math.floor(diffMs / 60000);
+    const diffHour = Math.floor(diffMin / 60);
+    const diffDay = Math.floor(diffHour / 24);
+
+    if (diffMin < 1) return "just now";
+    if (diffMin < 60) return diffMin + " min ago";
+    if (diffHour < 24) return diffHour + " h ago";
+    if (diffDay < 14) return diffDay + " days ago";
+
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return y + "." + m + "." + day;
+  }
+
+  const blogPromoLinks = Array.from(document.querySelectorAll(".blog-promo-card[href]"));
+  if (blogPromoLinks.length > 0) {
+    const uniqueLinks = [...new Set(blogPromoLinks.map((a) => a.getAttribute("href")).filter(Boolean))];
+
+    Promise.all(uniqueLinks.map(async (href) => {
+      try {
+        const res = await fetch(href, { cache: "no-store" });
+        if (!res.ok) return null;
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const timeEl = doc.querySelector(".article-meta time[datetime]");
+        const datetime = timeEl?.getAttribute("datetime") || "";
+        return { href, datetime };
+      } catch (_) {
+        return null;
+      }
+    })).then((results) => {
+      const map = new Map(results.filter(Boolean).map((r) => [r.href, r.datetime]));
+      blogPromoLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href || !map.has(href)) return;
+        const dateEl = link.querySelector(".blog-promo-date");
+        const datetime = map.get(href);
+        if (dateEl && datetime) {
+          dateEl.textContent = formatRelativeDate(datetime);
+        }
+      });
+    });
+  }
+
 });
