@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const POST_META = {
+    "post-1.html": { datetime: "2026-03-18", minutes: 1 },
+    "post-2.html": { datetime: "2026-03-19", minutes: 3 },
+    "post-3.html": { datetime: "2026-03-20", minutes: 2 },
+    "post-4.html": { datetime: "2026-03-21", minutes: 2 },
+    "post-5.html": { datetime: "2026-03-22", minutes: 1 },
+    "post-6.html": { datetime: "2026-03-23", minutes: 3 },
+    "post-7.html": { datetime: "2026-03-24", minutes: 2 },
+  };
 
   /* ========================================
      Scroll Reveal (IntersectionObserver)
@@ -95,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.max(1, Math.round(clean.length / 700));
   }
 
+  function normalizePostHref(href) {
+    if (!href) return "";
+    const clean = href.split("#")[0].split("?")[0];
+    return clean.split("/").pop() || "";
+  }
+
   // 日付表示を datetime 属性から再生成（表示ズレ防止）
   document.querySelectorAll("time[datetime]").forEach((timeEl) => {
     const dateStr = timeEl.getAttribute("datetime");
@@ -105,51 +120,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // 記事ページの read time を本文から自動算出
   const articleBody = document.querySelector(".article-body");
   const articleReadTime = document.querySelector(".article-meta .post-read-time");
-  if (articleBody && articleReadTime) {
-    const min = computeMinutesFromText(articleBody.textContent);
+  const articleTime = document.querySelector(".article-meta time[datetime]");
+  const currentPage = normalizePostHref(window.location.pathname);
+
+  if (articleBody && articleReadTime && currentPage) {
+    const meta = POST_META[currentPage];
+    const min = meta?.minutes ?? computeMinutesFromText(articleBody.textContent);
     articleReadTime.textContent = min + " min read";
+    if (articleTime && meta?.datetime) {
+      articleTime.setAttribute("datetime", meta.datetime);
+      articleTime.textContent = formatRelativeDate(meta.datetime);
+    }
   }
 
-  // 一覧ページの read time / 日付を記事ファイルから自動同期
+  // 一覧ページの read time / 日付をメタデータから同期
   const cardLinks = Array.from(document.querySelectorAll("a[href^=\"post-\"]"));
-  const uniquePostLinks = [...new Set(cardLinks.map((a) => a.getAttribute("href")).filter(Boolean))];
+  cardLinks.forEach((link) => {
+    const key = normalizePostHref(link.getAttribute("href"));
+    const meta = POST_META[key];
+    if (!meta) return;
 
-  if (uniquePostLinks.length > 0) {
-    const postMetaMap = new Map();
+    const timeEl = link.querySelector("time[datetime]");
+    if (timeEl) {
+      timeEl.setAttribute("datetime", meta.datetime);
+      timeEl.textContent = formatRelativeDate(meta.datetime);
+    }
 
-    Promise.all(uniquePostLinks.map(async (href) => {
-      try {
-        const res = await fetch(href, { cache: "no-store" });
-        if (!res.ok) return;
-        const html = await res.text();
-        const doc = new DOMParser().parseFromString(html, "text/html");
-        const bodyText = doc.querySelector(".article-body")?.textContent || "";
-        const mainTime = doc.querySelector(".article-meta time[datetime]");
-        const datetime = mainTime?.getAttribute("datetime") || "";
-        const minutes = computeMinutesFromText(bodyText);
-        postMetaMap.set(href, { datetime, minutes });
-      } catch (_) {
-        // fail silently
-      }
-    })).then(() => {
-      cardLinks.forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href || !postMetaMap.has(href)) return;
-        const meta = postMetaMap.get(href);
-        if (!meta) return;
-
-        const timeEl = link.querySelector("time[datetime]");
-        if (timeEl && meta.datetime) {
-          timeEl.setAttribute("datetime", meta.datetime);
-          timeEl.textContent = formatRelativeDate(meta.datetime);
-        }
-
-        const readEl = link.querySelector(".post-read-time");
-        if (readEl) {
-          readEl.textContent = meta.minutes + " min read";
-        }
-      });
-    });
-  }
+    const readEl = link.querySelector(".post-read-time");
+    if (readEl) {
+      readEl.textContent = meta.minutes + " min read";
+    }
+  });
 
 });
